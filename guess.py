@@ -8,9 +8,12 @@ print "Try to guess my number."
 secret_number=random.randrange(1,101)
 
 while True:
-    guess=raw_input("Whats your guess?")
-  #  if type(guess)!=int:
-        #print "That's not a number."
+    while True:
+        try:
+            guess=int(raw_input("Whats your guess?"))
+            break
+        except ValueError:
+            print "Not a valid number, please try again."
     if int(guess)<1 or int(guess)>100:
         print "Out of range, try again."
     elif int(guess) > secret_number:
